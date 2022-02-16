@@ -5,7 +5,12 @@ import model.Bet;
 public class Main {
     public static void main(String[] args) {
 
-        ConsoleHandler consoleHandler = (ConsoleHandler) Injector.getInstance(ConsoleHandler.class);
+        ConsoleHandler consoleHandler = null;
+        try {
+            consoleHandler = (ConsoleHandler) Injector.getInstance(ConsoleHandler.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         consoleHandler.handle();
 
     }

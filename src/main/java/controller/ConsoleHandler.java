@@ -1,6 +1,7 @@
 package controller;
 
 import dao.BetDAO;
+import db.Storage;
 import lib.Inject;
 import model.Bet;
 
@@ -11,8 +12,8 @@ public class ConsoleHandler {
     @Inject
     private BetDAO betDao;
 
-    @Inject
-    private Car car;
+   //@Inject
+   // private Car car;
 
     public void handle() {
         Scanner scanner = new Scanner(System.in);
@@ -30,6 +31,7 @@ public class ConsoleHandler {
 
             if (value < 5 & value > 0) {
                 System.out.println("betAdd - " + value);
+                Storage.bets.add(bet);
                 break;
             } else {
                 System.out.println("Ставка невірна.");
